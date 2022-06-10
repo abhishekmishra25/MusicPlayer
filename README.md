@@ -1,1 +1,5 @@
 # MusicPlayer
+### Installation
+```
+npm install
+```
