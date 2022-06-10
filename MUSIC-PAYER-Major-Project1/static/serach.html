@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search usinng</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: white;
+    }
+
+    table {
+      width: 100%;
+      height: auto;
+    }
+
+    table,
+    td {
+      border: 1px solid;
+      color: white;
+    }
+
+    tr {
+      border: .4pt
+    }
+
+    table {
+      border: thick solid
+    }
+
+    /*thead { border: 14pt double(1,12,1) }*/
+    thead {
+      background: cyan
+    }
+
+    input {
+      width: 100%;
+      font-size: 16px;
+      text-decoration: none;
+      border-radius: 18px;
+      border: none;
+      padding: 5px;
+      font-weight: 500;
+      text-align: center;
+      transition: all ease-in-out 0.1s;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: white;
+    }
+
+    /* Background Animation */
+
+    .bg {
+      animation: movingdiv 2s ease-in-out infinite alternate;
+      background-image: linear-gradient(-60deg, rgb(128, 54, 124) 50%, rgb(53, 25, 44) 50%);
+      bottom: 0;
+      left: -50%;
+      opacity: .5;
+      position: fixed;
+      right: -50%;
+      top: 0;
+      z-index: -1;
+    }
+
+    .bg2 {
+      animation-direction: alternate-reverse;
+      animation-duration: 3s;
+    }
+
+    .bg3 {
+      animation-duration: 4s;
+    }
+
+    @keyframes movingdiv {
+      0% {
+        transform: translateX(-25%);
+      }
+
+      100% {
+        transform: translateX(25%);
+      }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      margin: 0px;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    /*NAVBAR*/
+    .navbar {
+      height: auto;
+      width: auto;
+      background-image: linear-gradient(180deg, black, rgba(0, 0, 0, 0));
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+
+    .navbar>div {
+      display: inline-block;
+    }
+
+    .weblogo img {
+      height: 50px;
+      width: 50px;
+      border-radius: 100%;
+      animation-name: moveinout;
+      animation-timing-function: ease-in-out;
+      animation-duration: 2s;
+      perspective: 10000px;
+      transform-style: preserve-3d;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes moveinout {
+      75% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        transform: scaleX(1);
+      }
+    }
+
+    .webname h4 {
+      color: rgb(80, 220, 255);
+    }
+
+    .navtitle>div {
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    @keyframes inout {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      50% {
+        transform: rotateY(360deg);
+      }
+
+      75% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        transform: scaleX(1);
+      }
+    }
+
+    .favs {
+      animation-name: inout;
+      animation-timing-function: ease-in-out;
+      animation-duration: 2s;
+      perspective: 10000px;
+      transform-style: preserve-3d;
+      animation-iteration-count: infinite;
+    }
+
+    .sbar {
+      width: 20%;
+      position: relative;
+    }
+
+    .sbar input {
+      width: 100%;
+      font-size: 16px;
+      text-decoration: none;
+      border-radius: 18px;
+      border: none;
+      padding: 5px;
+      font-weight: 500;
+      text-align: center;
+      transition: all ease-in-out 0.1s;
+    }
+
+    .search-ico {
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    .mic-ico {
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    .sbar>div:nth-child(1) {
+      display: inline-block;
+      position: absolute;
+      width: min-content;
+      left: 5%;
+      top: 20%;
+      transition: all ease-in-out 0.1s;
+    }
+
+    .sbar>div:nth-child(3) {
+      display: inline-block;
+      position: absolute;
+      width: min-content;
+      right: 5%;
+      top: 20%;
+      transition: all ease-in-out 0.1s;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    .bell img {
+      width: 40px;
+      height: 30px;
+      animation-name: movingbell;
+      animation-duration: 0.4s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-delay: 5s;
+      position: first;
+    }
+
+    @keyframes movingbell {
+      0% {
+        transform: rotate(-15deg);
+      }
+
+      50% {
+        transform: rotate(15deg);
+      }
+
+      100% {
+        transform: rotate(-15deg);
+      }
+    }
+
+    .profile img {
+      width: 45px;
+      height: 45px;
+      border-radius: 100%;
+    }
+  </style>
+  <style></style>
+</head>
+
+<body>
+  <div class="bg"></div>
+  <div class="bg bg2"></div>
+  <div class="bg bg3"></div>
+
+  <nav class="navbar">
+    <div class="navtitle">
+      <div class="weblogo">
+        <a href="front.html"><img src="img/website_logo.png"></a>
+      </div>
+      <div class="webname">
+        <h2 style="color: rgb(134, 38, 59);">
+          MY
+        </h2>
+        <h6 style="color: rgb(173, 119, 131);">
+          Music Player
+        </h6>
+      </div>
+    </div>
+    <div class="favs">
+      <h4>
+        Favourites
+      </h4>
+    </div>
+    <div class="sbar">
+      <div>
+        <i class="fas fa-search search-ico"></i>
+      </div>
+      <a href="serach.html" class="search"><input type="submit" name="search" placeholder="All Songs"
+          onclick="searchFun()"></a>
+      <div>
+        <i class="fas fa-microphone mic-ico"></i>
+      </div>
+    </div>
+    <div class="bell">
+      <img src="img/bell_icon.svg">Notifications
+
+    </div>
+    <div class="profile">
+      <img src="img/profile_picture.jpeg">
+    </div>
+  </nav>
+  <h2 style="text-align: center;text-transform: uppercase;color: #440044;">My Songs</h2>
+  <input type="text" name="" id="myInput" placeholder="Songs...." onkeyup="searchFun()">
+  <main>
+    <table id="songs_table" border="1px">
+      <tr>
+        <th class="heading" style="width:30%;color: #440044">Song</th>
+        <th class="heading" style="width:20% ;"> Playback</th>
+        <th class="heading" style="width:30%;color: #440044">singer</th>
+        <th class="heading" style="width:20%;color: #440044">Release</th>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Yaaran da phone</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Yaaran Da Phone Samar 128 Kbps.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Shristhi maan</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">waliyan</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Waliyan(PagalWorld).mp3" type="audio/mp3">
+          </audio></td>
+        <td>Harnoor</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1" id="First Class">First Class</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/First-Class-Ringtone-1.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Jack Harlow</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1" id="As it was">As It Was</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/As It Was New English Song Download Mp3(SongsZilla.Net).mp3" type="audio/mp3">
+          </audio></td>
+        <td>Harry Styles</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1" id="As it was">Sanam Re</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/02 - Sanam Re.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Harry Styles</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1" id="As it was">jug jug jeeve</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Jug Jug Jeeve - Shiddat.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Ankit Tiwari</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1" id="As it was">Nach Panjaban</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Nach Punjaban.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Hardy Sandu</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1" id="As it was">Mere Sohneya</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Mere Sohneya - Kabir Singh.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1" id="As it was">As It Was</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/As It Was New English Song Download Mp3(SongsZilla.Net).mp3" type="audio/mp3">
+          </audio></td>
+        <td>Harry Styles</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">N95</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Kendrick Lamar</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Die Hard</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Kendrick Lamar, Blxst & Amanda Reifer</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">You Proof</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Morgan Wallen</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Hanuman Chalisa</td>
+        <td class="song1"><audio controls>
+            <source src="audio/Hanuman Chalisa - Hariharan, Gulshan Kumar- [PagalWorld.NL].mp3" type="audio/mp3">
+          </audio></td>
+        <td>Gulshan Kumar, Hariharan</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Lehanga</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Jass Manak</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Vaaste</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Dhvani Bhanushali, Tanishk Bagchi </td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Shayad</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Pritam</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tumse bhi jayada</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Pritam</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Hum nashe mein toh nahi</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Pritam</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Zara Sa</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>K.K</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Raabata</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Hawayein</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Pritam</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Bina Zindagi Se</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Kishore Kumar</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Dil toh pagal hai</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Lata Mangeshkar</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tujhe Dekha Toh</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Kumar Sanu</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1" id="As it was">jug jug jive su Lalanva</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Jug - Jug Jiya Su Lalanwa - Sohar Song- [PagalWorld.NL].mp3" type="audio/mp3">
+          </audio></td>
+        <td>Harry Styles</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Bholi si Surat</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Udit Narayan</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere bina jiya jaye na</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Lata Mangeshkar</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Gulabi</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Shreya Goshal</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Gulabi</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Vishal Mishra</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Pal</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Shreya Goshal</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Ae mere Humsafar</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>ALka Yagnik</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tip Tip Barsa Pani</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Udit Narayan</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Wada Raha Sanam</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Abhilijeet Bhatacharya</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Main agar kahoon</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Sonu Nigam</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Kal Ho na ho</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Sonu Nigam</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tum hi Ho</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Guzarish</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Sonu Nigam</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">O Saathi</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Bhool Bhulaiyaa 2 Title Track</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Pritam, Tanishk Bagchi, Neeraj Sridhar</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Pasoori</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Dhokha</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arijit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Mast Nazron Se</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Rochak Kohli, Jubin Nautiyal, Nasir Iqbal</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Heer Raanjhana</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>arijit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Kuch Baatein</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>payal dev</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Kahani</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Pritam, Mohan Kannan</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tutt Gaya</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Stebin Ben</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+      <tr>
+        <td class="song1">Tere Sang Yara</td>
+        <td class="song1" id=""><audio controls>
+            <source src="audio/Tere_Sang_Yaara_-_Slow.mp3" type="audio/mp3">
+          </audio></td>
+        <td>Arjit Singh</td>
+        <td>2019</td>
+      </tr>
+    </table>
+  </main>
+  <script>
+    function searchFun() {
+
+      let filter = document.getElementById('myInput').value.toUpperCase();
+
+      let myTable = document.getElementById('songs_table');
+
+      let tr = myTable.getElementsByTagName('tr');
+
+      for (var i = 0; i < tr.length; i++) {
+
+        let td = tr[i].getElementsByTagName('td')[0];
+        let tf = tr[i].getElementsByTagName('td')[2];
+
+        if (td) {
+          let textvalue = td.textContent || td.innerHTML;
+          if (textvalue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+        if (tf) {
+          let textvalue = tf.textContent || tf.innerHTML;
+          if (textvalue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
