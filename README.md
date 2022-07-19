@@ -12,7 +12,8 @@ nodemon server.js
  <p>1. You need to register from the registration page</p>
  <p>2. Then you go login page</p>
  <p>3. Clik on search bar for all music</p>
-### Login, Registration and Authentication
+
+## Login, Registration and Authentication
 
 <div>
  <img src = "https://github.com/abhishekmishra25/MusicPlayer/blob/main/login.jpg">
@@ -27,9 +28,13 @@ nodemon server.js
 
 <div><img src="https://github.com/abhishekmishra25/MusicPlayer/blob/main/latest_songs.png"></div>
 <div><img src="https://github.com/abhishekmishra25/MusicPlayer/blob/main/gener_songs.png"></div>
+
 ## Playlist
+
 <div><img src="https://github.com/abhishekmishra25/MusicPlayer/blob/main/playlist.png"></div>
+
 ## Searching
+
 <div><img src="https://github.com/abhishekmishra25/MusicPlayer/blob/main/searching1.png"></div>
 
 <div><img src="https://github.com/abhishekmishra25/MusicPlayer/blob/main/searching2.png"></div>
